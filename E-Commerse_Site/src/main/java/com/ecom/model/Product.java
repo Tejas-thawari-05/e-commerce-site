@@ -25,6 +25,36 @@ public class Product {
 	private int stock;
 	
 	private String image;
+	
+	private double discount;
+	
+	private double discountprice;
+	
+	private Boolean isActive;
+
+	public Boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public double getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+	public double getDiscountprice() {
+		return discountprice;
+	}
+
+	public void setDiscountprice(double discountprice) {
+		this.discountprice = discountprice;
+	}
 
 	public int getId() {
 		return id;
