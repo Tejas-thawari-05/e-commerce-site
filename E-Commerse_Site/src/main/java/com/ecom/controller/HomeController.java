@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ecom.model.Category;
 import com.ecom.model.Product;
@@ -37,18 +39,21 @@ public class HomeController {
 		return "register";
 	}
 	
-	@GetMapping("/product")
-	public String product(Model model) {
+	@GetMapping("/products")
+	public String product(Model model,@RequestParam(value = "category", defaultValue = "") String category) {
 		
 		List<Category> categories = categoryService.getAllActiveCategory();
-		//List<Product> products = productService.getAllActiveProducts();
+		List<Product> products = productService.getAllActiveProducts(category);
 		model.addAttribute("category",categories);
-	//	model.addAttribute("product",products);
+		model.addAttribute("product",products);
+		model.addAttribute("paramValue",category);
 		return "product";
 	}
 	
-	@GetMapping("/viewproduct")
-	public String viewproduct() {
+	@GetMapping("/product/{id}")
+	public String viewproduct(@PathVariable int id,Model model) {
+		Product productById = productService.getProductById(id);
+		model.addAttribute("product",productById);
 		return "view_product";
 	}
 	

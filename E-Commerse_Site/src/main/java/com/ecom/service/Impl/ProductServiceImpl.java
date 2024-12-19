@@ -48,6 +48,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product getProductById(int id) {
+		
 		Product product = productRepository.findById(id).orElse(null);
 
 		return product;
@@ -94,6 +95,18 @@ public class ProductServiceImpl implements ProductService {
 		}
 		
 		return null;
+	}
+
+	@Override
+	public List<Product> getAllActiveProducts(String category) {
+		List<Product> products =null;
+		if(ObjectUtils.isEmpty(category)) {
+			 products = productRepository.findByIsActiveTrue();
+			
+		}else {
+		 products = productRepository.findByCategory(category);
+		}
+		 return products;
 	}
 
 	

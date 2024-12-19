@@ -10,35 +10,42 @@
 <body>
 	<section>
 		<div class="container card-sh" style="margin-top: 70px;">
-			
-				<div class="col-md-12 p-5">
-					<div class="row">
+
+			<div class="col-md-12 p-5">
+				<div class="row">
 					<div class="col-md-6">
 						<img alt="" src="/img/category_img/laptop.jpg" width="330px" height="400px">
 					</div>
 					<div class="col-md-6">
-						<p class="fs-3">Laptop</p>
+						<p class="fs-3">[[${product.title}]]</p>
 						<p>
-							<span class="fw-bold">Description : </span><br>Hp laptop, 256Gb SSD
+							<span class="fw-bold">Description : </span><br>[[${product.description}]]
 						</p>
 						<p>
-							<span class="fw-bold"> Product Details: </span> <br> Status
-							:
+							<span class="fw-bold"> Product Details: </span> <br> Status :
+							
+							
+							
+							
+							<th:block th:if="${product.stock > 0}">
+								<span class="badge bg-success">Available</span>
+							</th:block>
+							<th:block th:unless="${product.stock > 0}">
+								<span class="badge bg-warning">out of stock</span>
+							</th:block>
+							
 
-							<span class="badge bg-success">Available</span>
+							
 
 
-							<span class="badge bg-warning">out of stock</span>
-
-
-
-							<br> Category: Laptop<br> Policy : 7
+							<br> Category: [[${product.category}]]<br> Policy : 7
 							Days Replacement & Return
 						</p>
 						<p class="fs-5 fw-bold">
-							Price :&nbsp; &nbsp; &nbsp; &nbsp;<i class="fas fa-rupee-sign"></i>70000
-							<span class="fs-6 text-decoration-line-through text-secondary">5000</span>
-							<span class="fs-6  text-success">10%
+							Price :&nbsp; &nbsp; &nbsp; &nbsp;<i
+								class="fas fa-rupee-sign"></i>[[${product.discountprice}]]
+							<span class="fs-6 text-decoration-line-through text-secondary">[[${product.price}]]</span>
+							<span class="fs-6  text-success">[[${product.discount}]]
 								off</span>
 						</p>
 
@@ -57,18 +64,14 @@
 							</div>
 						</div>
 
-
+						<th:bolck th:if="${product.stock > 0}">
 						<a href="/signin" class="btn btn-danger col-md-12">Add To
 							Cart</a>
-
-
-
-						
-
-
+						</th:bolck>
+							<th:bolck th:unless="${product.stock > 0}">
 						<a href="#" class="btn text-white btn-warning col-md-12">Out
 							of Stock</a>
-
+						</th:bolck>
 
 					</div>
 				</div>
