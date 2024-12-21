@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ecom.model.Category;
 import com.ecom.model.Product;
-import com.ecom.model.UserDetails;
+import com.ecom.model.UserDtls;
 import com.ecom.service.CategoryService;
 import com.ecom.service.ProductService;
 import com.ecom.service.UserService;
@@ -47,7 +47,7 @@ public class HomeController {
 		return "index";
 	}
 	
-	@GetMapping("/login")
+	@GetMapping("/signin")
 	public String login() {
 		return "login";
 	}
@@ -76,11 +76,11 @@ public class HomeController {
 	}
 	
 	@PostMapping("/saveUser")
-	public String saveUser(@ModelAttribute UserDetails user,@RequestParam("img") MultipartFile file,HttpSession session) throws IOException {
+	public String saveUser(@ModelAttribute UserDtls user,@RequestParam("img") MultipartFile file,HttpSession session) throws IOException {
 		
 		String imageName = file.isEmpty() ? "default.jpg" : file.getOriginalFilename();
 		user.setProfleImage(imageName);
-		UserDetails saveUser = userService.saveUser(user);
+		UserDtls saveUser = userService.saveUser(user);
 		
 		if(!ObjectUtils.isEmpty(saveUser)) {
 			if(!file.isEmpty()) {

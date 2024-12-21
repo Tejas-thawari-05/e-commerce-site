@@ -58,8 +58,8 @@
 								<div class="col-md-3" th:each="p:${product}">
 									<div class="card">
 										<div class="card-body">
-											<a href="/product"><img alt="" th:src="@{'/img/product_img/'+${p.image}}"
-													width="100%" height="150px"></a>
+											<img alt="" th:src="@{'/img/product_img/'+${p.image}}"
+													width="100%" height="150px">
 											<p class="fs-5 text-center">[[${p.title}]]]</p>
 											<div class="row text-center">
 												<p class="fs-6 fw-bold"> 

@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class UserDetails {
+public class UserDtls {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -28,6 +28,16 @@ public class UserDetails {
 	private String password;
 	
 	private String profleImage;
+	
+	private String role;
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
 
 	public int getId() {
 		return id;
@@ -109,15 +119,17 @@ public class UserDetails {
 		this.profleImage = profleImage;
 	}
 
+	
 	@Override
 	public String toString() {
 		return "UserDetails [id=" + id + ", name=" + name + ", mobileNumber=" + mobileNumber + ", email=" + email
 				+ ", address=" + address + ", city=" + city + ", state=" + state + ", pincode=" + pincode
-				+ ", password=" + password + ", profleImage=" + profleImage + "]";
+				+ ", password=" + password + ", profleImage=" + profleImage + ", role=" + role + "]";
 	}
+	
 
-	public UserDetails(int id, String name, String mobileNumber, String email, String address, String city,
-			String state, String pincode, String password, String profleImage) {
+	public UserDtls(int id, String name, String mobileNumber, String email, String address, String city,
+			String state, String pincode, String password, String profleImage, String role) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -129,9 +141,10 @@ public class UserDetails {
 		this.pincode = pincode;
 		this.password = password;
 		this.profleImage = profleImage;
+		this.role = role;
 	}
 
-	public UserDetails() {
+	public UserDtls() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
