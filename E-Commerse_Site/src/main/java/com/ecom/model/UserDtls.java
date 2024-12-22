@@ -30,6 +30,18 @@ public class UserDtls {
 	private String profleImage;
 	
 	private String role;
+	
+	private boolean isEnable;
+	
+	
+
+	public boolean isEnable() {
+		return isEnable;
+	}
+
+	public void setEnable(boolean isEnable) {
+		this.isEnable = isEnable;
+	}
 
 	public String getRole() {
 		return role;
@@ -120,16 +132,18 @@ public class UserDtls {
 	}
 
 	
+	
 	@Override
 	public String toString() {
-		return "UserDetails [id=" + id + ", name=" + name + ", mobileNumber=" + mobileNumber + ", email=" + email
+		return "UserDtls [id=" + id + ", name=" + name + ", mobileNumber=" + mobileNumber + ", email=" + email
 				+ ", address=" + address + ", city=" + city + ", state=" + state + ", pincode=" + pincode
-				+ ", password=" + password + ", profleImage=" + profleImage + ", role=" + role + "]";
+				+ ", password=" + password + ", profleImage=" + profleImage + ", role=" + role + ", isEnable="
+				+ isEnable + "]";
 	}
 	
 
-	public UserDtls(int id, String name, String mobileNumber, String email, String address, String city,
-			String state, String pincode, String password, String profleImage, String role) {
+	public UserDtls(int id, String name, String mobileNumber, String email, String address, String city, String state,
+			String pincode, String password, String profleImage, String role, boolean isEnable) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -142,6 +156,7 @@ public class UserDtls {
 		this.password = password;
 		this.profleImage = profleImage;
 		this.role = role;
+		this.isEnable = isEnable;
 	}
 
 	public UserDtls() {
