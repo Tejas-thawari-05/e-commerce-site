@@ -1,5 +1,7 @@
 package com.ecom.model;
 
+import java.util.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,13 +35,19 @@ public class UserDtls {
 	
 	private boolean isEnable;
 	
+	private Boolean accountNonLocked;
+	
+	private Integer failedAttempt;
+	
+	private Date lockTime;
+	
 	
 
-	public boolean isEnable() {
+	public boolean getIsEnable() {
 		return isEnable;
 	}
 
-	public void setEnable(boolean isEnable) {
+	public void setIsEnable(boolean isEnable) {
 		this.isEnable = isEnable;
 	}
 
@@ -132,18 +140,39 @@ public class UserDtls {
 	}
 
 	
-	
-	@Override
-	public String toString() {
-		return "UserDtls [id=" + id + ", name=" + name + ", mobileNumber=" + mobileNumber + ", email=" + email
-				+ ", address=" + address + ", city=" + city + ", state=" + state + ", pincode=" + pincode
-				+ ", password=" + password + ", profleImage=" + profleImage + ", role=" + role + ", isEnable="
-				+ isEnable + "]";
+	public Boolean getAccountNonLocked() {
+		return accountNonLocked;
 	}
-	
 
+	public void setAccountNonLocked(Boolean accountNonLocked) {
+		this.accountNonLocked = accountNonLocked;
+	}
+
+	public Integer getFailedAttempt() {
+		return failedAttempt;
+	}
+
+	public void setFailedAttempt(Integer failedAttempt) {
+		this.failedAttempt = failedAttempt;
+	}
+
+	public Date getLockTime() {
+		return lockTime;
+	}
+
+	public void setLockTime(Date lockTime) {
+		this.lockTime = lockTime;
+	}
+
+	public void setEnable(boolean isEnable) {
+		this.isEnable = isEnable;
+	}
+
+	
+	
 	public UserDtls(int id, String name, String mobileNumber, String email, String address, String city, String state,
-			String pincode, String password, String profleImage, String role, boolean isEnable) {
+			String pincode, String password, String profleImage, String role, boolean isEnable,
+			Boolean accountNonLocked, Integer failedAttempt, Date lockTime) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -157,6 +186,20 @@ public class UserDtls {
 		this.profleImage = profleImage;
 		this.role = role;
 		this.isEnable = isEnable;
+		this.accountNonLocked = accountNonLocked;
+		this.failedAttempt = failedAttempt;
+		this.lockTime = lockTime;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "UserDtls [id=" + id + ", name=" + name + ", mobileNumber=" + mobileNumber + ", email=" + email
+				+ ", address=" + address + ", city=" + city + ", state=" + state + ", pincode=" + pincode
+				+ ", password=" + password + ", profleImage=" + profleImage + ", role=" + role + ", isEnable="
+				+ isEnable + ", accountNonLocked=" + accountNonLocked + ", failedAttempt=" + failedAttempt
+				+ ", lockTime=" + lockTime + "]";
 	}
 
 	public UserDtls() {
