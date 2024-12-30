@@ -26,6 +26,10 @@ public class UserServiceImpl implements UserService{
 	public UserDtls saveUser(UserDtls user) {
 		user.setRole("ROLE_USER");
 		user.setIsEnable(true);
+		user.setAccountNonLocked(true);
+		user.setFailedAttempt(0);
+		user.setLockTime(null);
+		
 		String encodepassword = passwordEncoder.encode(user.getPassword());
 		user.setPassword(encodepassword);
 		UserDtls saveUser = userRepository.save(user);
