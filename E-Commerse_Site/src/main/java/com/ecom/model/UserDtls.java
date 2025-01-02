@@ -41,7 +41,17 @@ public class UserDtls {
 	
 	private Date lockTime;
 	
+	private String resetToken;
 	
+	
+
+	public String getResetToken() {
+		return resetToken;
+	}
+
+	public void setResetToken(String resetToken) {
+		this.resetToken = resetToken;
+	}
 
 	public boolean getIsEnable() {
 		return isEnable;
